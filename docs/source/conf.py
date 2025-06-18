@@ -12,8 +12,8 @@ import sys
 sys.path.insert(0, os.path.abspath("../../"))
 
 project = "tdd_calc"
-copyright = "2025, kbuzar"
-author = "kbuzar"
+copyright = "2025, vikleu"
+author = "vikleu"
 release = "0.0.1"
 
 # -- General configuration ---------------------------------------------------
