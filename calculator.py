@@ -15,7 +15,7 @@ class Calculator:
     def multiply(self, a, b):
         """Return the product of a and b."""
         if a == 0 or b == 0:
-            raise ValueError("Multiplication by zero is not allowed")
+            raise ValueError("Multiplication by zero is not possible")
         return a * b
 
     def divide(self, a, b):
