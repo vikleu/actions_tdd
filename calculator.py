@@ -28,13 +28,3 @@ class Calculator:
         if b == 0:
             raise ValueError("Cannot divide by zero")
         return a / b
-
-    def power(self, a, b):
-        """Return a raised to the power of b using math.pow."""
-        return math.pow(a, b)
-
-    def sqrt(self, a):
-        """Return the square root of a using numpy.sqrt."""
-        if a < 0:
-            raise ValueError("Cannot take square root of negative number")
-        return np.sqrt(a)
