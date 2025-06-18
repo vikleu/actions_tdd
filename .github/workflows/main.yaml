@@ -1,19 +1,27 @@
-name: My First Workflow
+# .github/workflows/main.yml
 
-on: [push]
+name: Simple CI
+
+# Run this workflow on every push to the main branch
+on:
+  push:
+    branches: [ main ]
 
 jobs:
   build:
+    # This line specifies the use of a standard, GitHub-hosted runner
+    # The usage of this runner will draw from your free minutes allowance
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository code
+      # Step 1: Check out the repository's code so the runner can access it
+      - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Run a one-line script
-        run: echo "Hello, world!"
+      # Step 2: Run a simple script
+      - name: Say hello
+        run: echo "Hello! This workflow is using a GitHub-hosted runner."
 
-      - name: Run a multi-line script
-        run: |
-          echo "This is the first line."
-          echo "This is the second line."
+      # Step 3: Run another command to show it's a Linux environment
+      - name: Show OS version
+        run: uname -a
