@@ -1,8 +1,5 @@
 # calculator.py
 
-import math
-import numpy as np
-
 
 class Calculator:
     """A simple calculator class."""
