@@ -1,6 +1,6 @@
 # .github/workflows/main.yml
 
-name: Simple CI
+name: Run Python Tests
 
 # Run this workflow on every push to the main branch
 on:
@@ -8,20 +8,29 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-    # This line specifies the use of a standard, GitHub-hosted runner
-    # The usage of this runner will draw from your free minutes allowance
+  build-and-test:
+    # Use the latest version of Ubuntu on a GitHub-hosted runner
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository's code so the runner can access it
+      # Step 1: Check out the repository's code so the job can access it
       - name: Check out code
         uses: actions/checkout@v4
 
-      # Step 2: Run a simple script
-      - name: Say hello
-        run: echo "Hello! This workflow is using a GitHub-hosted runner."
+      # Step 2: Set up a specific version of Python
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-      # Step 3: Run another command to show it's a Linux environment
-      - name: Show OS version
-        run: uname -a
+      # Step 3: (Optional) Install dependencies if you have them
+      # This example has no dependencies, but in a real project you would
+      # uncomment the following lines.
+      # - name: Install dependencies
+      #   run: |
+      #     python -m pip install --upgrade pip
+      #     pip install -r requirements.txt
+
+      # Step 4: Run the tests using the unittest module
+      - name: Run tests
+        run: python -m unittest discover
